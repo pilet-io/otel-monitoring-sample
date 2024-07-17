@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.pilet</groupId>
     <artifactId>otel-monitoring-sample</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>otel-monitoring-sample</name>
     <description>otel-monitoring-sample</description>
     <url/>
@@ -43,6 +43,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
