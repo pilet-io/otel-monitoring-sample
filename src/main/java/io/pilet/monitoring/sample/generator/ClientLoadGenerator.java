@@ -4,6 +4,7 @@ import io.pilet.monitoring.sample.model.Person;
 import io.pilet.monitoring.sample.util.Json;
 import io.pilet.monitoring.sample.util.RandomUtils;
 import lombok.SneakyThrows;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +19,9 @@ public class ClientLoadGenerator {
     HttpClient httpClient = HttpClient.newBuilder().build();
 
     @SneakyThrows
-    public ClientLoadGenerator() {
-        PEOPLE_URL = new URI("http://localhost:8080/people");
+    public ClientLoadGenerator(ServerProperties serverProperties) {
+        String url = String.format("http://localhost:%d/people", serverProperties.getPort());
+        PEOPLE_URL = new URI(url);
     }
 
 
