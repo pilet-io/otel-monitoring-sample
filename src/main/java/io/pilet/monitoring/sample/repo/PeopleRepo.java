@@ -19,8 +19,7 @@ public class PeopleRepo implements RowMapper<Person> {
 
     public void create(Person person) {
         jdbcTemplate.update(
-                "INSERT INTO sample.people (id,name,age,zip) VALUES (?,?,?,?) " +
-                        "ON CONFLICT DO NOTHING ",
+                "INSERT INTO sample.people (id,name,age,zip) VALUES (?,?,?,?) ",
                 person.id(), person.name(), person.age(), person.zip());
     }
 
