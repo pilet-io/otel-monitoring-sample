@@ -19,7 +19,7 @@ public class ClientLoadGenerator {
 
     @SneakyThrows
     public ClientLoadGenerator() {
-        PEOPLE_URL = new URI("http://localhost:8080/people");
+        PEOPLE_URL = new URI("http://localhost:8099/people");
     }
 
 
