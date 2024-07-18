@@ -1,5 +1,6 @@
 package io.pilet.monitoring.sample.model;
 
+import io.pilet.monitoring.sample.util.MD5;
 import lombok.SneakyThrows;
 
 import java.math.BigInteger;
@@ -14,9 +15,7 @@ public record Person (
 
     @SneakyThrows
     public static Person of(String name, Integer age, String zip) {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        md.update((name + age + zip).getBytes());
-        String id = String.format("%032x", new BigInteger(1, md.digest()));
+        String id = MD5.hashOf(name, age, zip);
         return new Person(id, name, age, zip);
     }
 }

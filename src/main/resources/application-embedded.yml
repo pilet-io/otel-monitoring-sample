@@ -1,4 +1,8 @@
 spring:
+  kafka:
+    bootstrap-servers: main.pilet.cloud:32063
+    consumer:
+      group-id: otel-monitoring-sample
 
   datasource:
     url: jdbc:h2:mem:sample
