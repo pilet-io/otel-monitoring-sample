@@ -23,16 +23,16 @@ public class TaskService {
     }
 
     @SneakyThrows
-    @KafkaListener(topics = "sample.request")
+    @KafkaListener(topics = "admin.sample.request")
     void onTaskRequest(String requestJson) {
         log.info("Processing task {}", requestJson);
         TaskRequest request = Json.map(requestJson, TaskRequest.class);
         Thread.sleep(random.nextLong(10000));
         TaskResponse response = new TaskResponse(request.id(), request.task(), "DONE");
-        kafkaTemplate.send("sample.response", Json.of(response));
+        kafkaTemplate.send("admin.sample.response", Json.of(response));
     }
 
-    @KafkaListener(topics = "sample.response")
+    @KafkaListener(topics = "admin.sample.response")
     void onTaskResponse(String responseJson) {
         log.info("On task response {}", responseJson);
     }

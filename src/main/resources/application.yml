@@ -2,7 +2,7 @@ server:
   port: 8099
 spring:
   profiles:
-    active: embedded
+    active: confluent
   application:
     name: otel-monitoring-sample
 

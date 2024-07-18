@@ -6,3 +6,14 @@ spring:
     password: ${DB_PASSWORD:secret}
     hikari:
       maximum-pool-size: 10
+
+  kafka:
+    bootstrap-servers: pkc-ep19y.us-west-2.aws.confluent.cloud:9092
+    properties:
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='IM75F74FLNPCUAWZ' password='deOQYrgju38zpr/KZPmEgqadi2aMFknV/F7S14XMiLlMbnT0wQg00G85fqQxlYOt';
+      basic.auth.credentials.source: USER_INFO
+    consumer:
+      group-id: otel-monitoring-sample
+      auto-offset-reset: latest

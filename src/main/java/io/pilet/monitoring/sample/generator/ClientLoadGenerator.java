@@ -51,7 +51,7 @@ public class ClientLoadGenerator {
     @Scheduled(cron = "0 * * * * *")
     void requestTask() {
         TaskRequest taskRequest = TaskRequest.of("scheduled-task");
-        kafkaTemplate.send("sample.request", Json.of(taskRequest));
+        kafkaTemplate.send("admin.sample.request", Json.of(taskRequest));
     }
 
 }

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:sample
+
+  kafka:
+    bootstrap-servers: pkc-ep19y.us-west-2.aws.confluent.cloud:9092
+    properties:
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='IM75F74FLNPCUAWZ' password='${KAFKA_PASSWORD}}';
+      basic.auth.credentials.source: USER_INFO
+    consumer:
+      group-id: otel-monitoring-sample
+      auto-offset-reset: latest
