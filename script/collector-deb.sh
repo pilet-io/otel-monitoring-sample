@@ -5,6 +5,11 @@ sudo apt-get -y install wget systemctl
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.105.0/otelcol-contrib_0.105.0_linux_amd64.deb
 sudo dpkg -i otelcol-contrib_0.105.0_linux_amd64.deb
 
+#sudo yum update
+#sudo yum -y install wget systemctl
+#wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.105.0/otelcol-contrib_0.105.0_linux_amd64.rpm
+#sudo rpm -ivh otelcol-contrib_0.105.0_linux_amd64.rpm
+
 cat <<EOF | tee /etc/otelcol-contrib/config.yaml
 extensions:
   health_check:
