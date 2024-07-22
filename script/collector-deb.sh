@@ -21,6 +21,18 @@ receivers:
       http:
         endpoint: 0.0.0.0:4318
 
+  hostmetrics:
+    collection_interval: 30s
+    scrapers:
+      cpu:
+      memory:
+
+  hostmetrics/disk:
+    collection_interval: 1m
+    scrapers:
+      disk:
+      filesystem:
+
   opencensus:
     endpoint: 0.0.0.0:55678
 
@@ -64,7 +76,7 @@ service:
       exporters: [otlphttp]
 
     metrics:
-      receivers: [otlp, opencensus, prometheus]
+      receivers: [otlp, opencensus, prometheus, hostmetrics, hostmetrics/disk]
       processors: [batch]
       exporters: [otlphttp]
 
