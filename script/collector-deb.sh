@@ -45,20 +45,6 @@ receivers:
         static_configs:
         - targets: ['0.0.0.0:8888']
 
-  jaeger:
-    protocols:
-      grpc:
-        endpoint: 0.0.0.0:14250
-      thrift_binary:
-        endpoint: 0.0.0.0:6832
-      thrift_compact:
-        endpoint: 0.0.0.0:6831
-      thrift_http:
-        endpoint: 0.0.0.0:14268
-
-  zipkin:
-    endpoint: 0.0.0.0:9411
-
 processors:
   batch:
 
@@ -71,7 +57,7 @@ service:
   pipelines:
 
     traces:
-      receivers: [otlp, opencensus, jaeger, zipkin]
+      receivers: [otlp, opencensus]
       processors: [batch]
       exporters: [otlphttp]
 

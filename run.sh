@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_TOOL_OPTIONS='-javaagent:../lib/opentelemetry-javaagent.jar'
+export JAVA_TOOL_OPTIONS='-javaagent:./lib/opentelemetry-javaagent.jar'
 #export OTEL_EXPORTER_OTLP_ENDPOINT='https://otel.pilet.cloud'
 #export OTEL_EXPORTER_OTLP_PROTOCOL='http/protobuf'
 export OTEL_JAVAAGENT_DEBUG=false
@@ -11,4 +11,4 @@ export OTEL_SERVICE_NAME=otel-monitoring-sample
 
 export SPRING_PROFILES_ACTIVE=embedded
 
-java -jar ../lib/app.jar
+java -jar ./lib/app.jar
