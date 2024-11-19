@@ -1,4 +1,8 @@
 from openai import OpenAI
+from opentelemetry.instrument.openai import OpenAIInstrumentor
+
+OpenAIInstrumentor().instrument()
+
 client = OpenAI()
 
 completion = client.chat.completions.create(
