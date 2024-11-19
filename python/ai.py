@@ -1,5 +1,5 @@
 from openai import OpenAI
-from opentelemetry.instrumentation.openai import OpenAIInstrumentor
+from opentelemetry.instrument.openai import OpenAIInstrumentor
 
 OpenAIInstrumentor().instrument()
 
